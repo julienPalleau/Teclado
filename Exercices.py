@@ -64,17 +64,52 @@
 # age = 29
 # print(f"I am {str(age)}")
 
-# Exercice 4     Format and print the information below using string interpolation:
+# # Exercice 4     Format and print the information below using string interpolation:
+# #
+# title = "Joker"
+# director = "Todd Phillips"
+# release_year = 2019
+# #
+# # The output should look like this:
+# #
+# # Joker (2019), directed by Todd Phillips
 #
-title = "Joker"
-director = "Todd Phillips"
-release_year = 2019
-#
-# The output should look like this:
-#
-# Joker (2019), directed by Todd Phillips
+# print(f"{title} ({release_year}), directed by {director}")
 
-print(f"{title} ({release_year}), directed by {director}")
+#########
+# Day3 #
+#########
+# Exercice 1 Create a movies list containing a single tuple. The tuple should contain a movie title, the director’s
+# name, the release year of the movie, and the movie’s budget.
+movie = [("Reservoir Dogs",
+          "Quentin Tarantino",
+          "1992",
+          "$1,600,000")
+         ]
+
+# # Exercice 2 Use the input function to gather information about another movie. You need a title, director’s name,
+# # release year, and budget.
+# title, director, year, budget = input("Please provied information about a movie, You need a title, director’s name, release year, and budget separated by , : ").split(",")
+# print(f"Titre : {title}, Director: {director}, release year: {year}, Budget : {budget}")
+#
+# # Exercice 3 Create a new tuple from the values you gathered using input. Make sure they’re in the same order as the
+# # tuple you wrote in the movies list.
+# newTuple = title, director, year, budget
+# print(type(newTuple))
+#
+# # Exercice 4 Use an f-string to print the movie name and release year by accessing your new movie tuple.
+# print(f"the movie name is {newTuple[0]} and its realease year is {newTuple[2]}")
+
+# Exercice 5 Add the new movie tuple to the movies collection using append
+# Exercice 6 Print both movies in the movies collection.
+title, director, year, budget = input("Please provied information about a movie, You need a title, director’s name, release year, and budget separated by , : ").split(",")
+newTuple = title, director, year, budget
+movie.append(newTuple)
+print(movie)
+
+# Exercice 7 Remove the first movie from movies. Use any method you like.
+movie.pop(0)
+print(movie)
 
 #########
 # Day16 #
