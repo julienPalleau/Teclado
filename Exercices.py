@@ -84,6 +84,8 @@
 #################################
 # Exercice 1 Create a movies list containing a single tuple. The tuple should contain a movie title, the director’s
 # name, the release year of the movie, and the movie’s budget.
+from typing import List
+
 movie = [("Reservoir Dogs",
           "Quentin Tarantino",
           "1992",
@@ -162,9 +164,79 @@ movie = [("Reservoir Dogs",
 
 
 ##################
-# Day5 For Loops #
+# Day6 For Loops #
 ##################
+# # Exercice 1 Below we've provided a list of tuples, where each tuple contains details about an employee of a shop:
+# # their name, the number of hours worked last week, and their hourly rate. Print how much each employee is due to be
+# # paid at the end of the week in a nice, readable format.
+# #
+# employees = [
+#     ("Rolf Smith", 35, 8.75),
+#     ("Anne Pun", 30, 12.50),
+#     ("Charlie Lee", 50, 15.50),
+#     ("Bob Smith", 20, 7.00)
+# ]
+#
+# for employee in employees:
+#     print(f"employee {employee[0]} is due £{employee[1]*employee[2]}")
 
+# # Exercice 2 For the employees above, print out those who are earning an hourly wage above average.
+# # Hint: you can use a for loop and two variables to keep track of the total wage and the number of employees.
+# # Then, use the two variables to calculate the average. Finally, add another loop that goes through the employees list
+# # again and prints out only those who have an hourly wage above the calculated average.
+# total_wage = total_employee = 0
+# for employee in employees:
+#     total_wage += employee[2]
+#     total_employee += 1
+#
+# average_wage = total_wage/total_employee
+# print(f"average wage is {average_wage}")
+# for employee in employees:
+#     if employee[2] > average_wage:
+#         print(f"{employee[0]} earn more than average.")
+
+
+###############################
+# Day7 Split, Join and Slices #
+###############################
+# # Exercice 1 Ask the user to enter their given name and surname in response to a single prompt. Use split to extract
+# # the names, and then assign each name to a different variable. For this exercise, you can assume that the user has a
+# # single given name and a single surname.
+# name, surname = input("Veuillez saisir votre nom et prenom :").split(" ")
+# print(f"Votre nom est {name}, et votre prenom est {surname}")
+
+# # Exercice 2 Print the list, [1, 2, 3, 4, 5], in the format 1 | 2 | 3 | 4 | 5 using the join method. Remember that you
+# # can only join collections of strings, so you’re going to need to do some initial processing of the list of numbers.
+# list1 = [1, 2, 3, 4, 5]
+# result = []
+# for number in list1:
+#     result.append(str(number))
+#
+# print(result)
+# print("| ".join(result))
+# print(", ".join(result))
+
+# Exercice 3 Below you’ll find a short list of quotes:
+#
+quotes = [
+    "'What a waste my life would be without all the beautiful mistakes I've made.'",
+    "'A bend in the road is not the end of the road... Unless you fail to make the turn.'",
+    "'The very essence of romance is uncertainty.'",
+    "'We are not here to do what has already been done.'"
+]
+print("Solution - 1")
+for quote in quotes:
+    print(quote[1:-1])
+
+print("\nSolution - 2")
+for quote in quotes:
+    print(quote.strip("'"))
+
+#
+# Each quote is a string, but each string actually contains quote characters at the start and end. Using slicing,
+# extract the text from each string, without these extra quote marks, and print each quote.
+#
+# You may also want to try a solution using strip.
 
 #########
 # Day16 #
