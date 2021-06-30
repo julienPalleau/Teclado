@@ -144,5 +144,3 @@ print(f"{title} ({release_year}), directed by {director}")
 # Currency: {currency}"""
 #
 # print(country_template.format(**country))
-
-# Exercice 4
