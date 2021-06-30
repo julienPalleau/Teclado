@@ -78,6 +78,7 @@
 #
 # print(f"{title} ({release_year}), directed by {director}")
 
+
 #################################
 # Day4 Basic Python Collections #
 #################################
@@ -102,21 +103,68 @@ movie = [("Reservoir Dogs",
 # # Exercice 4 Use an f-string to print the movie name and release year by accessing your new movie tuple.
 # print(f"the movie name is {newTuple[0]} and its realease year is {newTuple[2]}")
 
-# Exercice 5 Add the new movie tuple to the movies collection using append
-# Exercice 6 Print both movies in the movies collection.
-title, director, year, budget = input("Please provied information about a movie, You need a title, director’s name, release year, and budget separated by , : ").split(",")
-newTuple = title, director, year, budget
-movie.append(newTuple)
-print(movie)
+# # Exercice 5 Add the new movie tuple to the movies collection using append
+# # Exercice 6 Print both movies in the movies collection.
+# title, director, year, budget = input("Please provied information about a movie, You need a title, director’s name, release year, and budget separated by , : ").split(",")
+# newTuple = title, director, year, budget
+# movie.append(newTuple)
+# print(movie)
+#
+# # Exercice 7 Remove the first movie from movies. Use any method you like.
+# movie.pop(0)
+# print(movie)
 
-# Exercice 7 Remove the first movie from movies. Use any method you like.
-movie.pop(0)
-print(movie)
 
 ##################################
 # Day5 Conditionals and Booleans #
 ##################################
-# # Exercice 1
+# # Exercice 1 Try to approximate the behaviour of the is operator using ==. Remember we have the id function for
+# # finding the memory address for a given value, and we can compare memory addresses to check for identity.
+# a = [1, 2, 3]
+# b = [1, 2, 3]
+# print(a == b)
+# print(a is b)
+# print(id(a) == id(b))
+
+# # Exercice 2 Try to use the is operator or the id function to investigate the difference between this:
+# numbers = [1, 2, 3, 4]
+# new_numbers = numbers + [5]
+# print(id(new_numbers))
+# print(id(new_numbers))
+# # And this:
+# numbers = [1, 2, 3, 4]
+# numbers.append(5)
+# # Are new_numbers and numbers the same thing? What about numbers before and after we append 5?
+# print(id(numbers))
+# print(id(new_numbers))
+#
+# # Exercice 3 Ask the user to enter a number. Tell the user whether the number is positive, negative, or zero.
+# number = int(input("Saisissez un entier positif ou negatif ou nul: "))
+# if number > 0:
+#     print(f"Vous avez saisi un entier positif {number}")
+# elif number < 0:
+#     print(f"Vous avez saisi un entier negatif {number}")
+# else:
+#     print(f"Vous avez saisi un entier nul")
+
+# # Exercice 4 Write a program to determine whether an employee is owed any overtime. You should ask the user how many
+# # hours the employee worked this week, as well as the hourly wage for this employee.
+# # If the employee worked more than 40 hours, you should print a message which says the employee is due some additional
+# # pay, as well as the amount due. The additional amount owed is 10% of the employees hourly wage for each hour worked
+# # over the 40 hours. In effect, the employees get paid 110% of their hourly wage for any overtime.
+# # You can find our solutions to these exercises here.
+# workedHours = int(input("How many hours did you work this week ? : "))
+# hourlyWage = float(input("What is your hour wage ? : "))
+# if workedHours > 40:
+#     print(f"Cette semaine vous avez gagne: £{40*hourlyWage} + £{(workedHours - 40) * 0.1 * hourlyWage} de prime")
+# else:
+#     print(f"Cette semaine vous avez gagne: £{40*hourlyWage}")
+
+
+##################
+# Day5 For Loops #
+##################
+
 
 #########
 # Day16 #
