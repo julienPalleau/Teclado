@@ -1,6 +1,6 @@
-#########
-# Day1 #
-#########
+#########################################################
+# Day1 Numbers, Arithmetic, and Printing to the Console #
+#########################################################
 # # Exercice 1 Print your age to the console.
 # print("I am 45 years old")
 # print("\n")
@@ -15,9 +15,10 @@
 # # Exercice 3 Calculate and print the area of a circle with a radius of 5 units. You can be as accurate as you like with the value of pi.
 # print(f"area of the circle with a radius of 5 units: {3.14*pow(5, 2)}")
 
-#########
-# Day2 #
-#########
+
+#########################################################
+# Day2 Strings, Variables, and Getting Input from Users #
+#########################################################
 # # Exercice 1 Ask the user for their name and age, assign theses values to two variables, and then print them.
 # name, age = input("Veuillez saisir votre prenom et votre age separer par une virulge: ").split(",")
 # print(f"votre prenom est {name}, et votre age est {age} ans")
@@ -38,9 +39,10 @@
 # # This is because Python is running our code top to bottom, so when we refer to x when calling print, we haven't yet
 # # updated the value of x.
 
-#########
-# Day3 #
-#########
+
+#####################################################
+# Day3 Formatting Strings and Processing User Input #
+#####################################################
 # # Exercice 1 Using the variable below, print "Hello, world!".
 # # greeting = "Hello, world"
 # # You can add the missing exclamation mark using string concatenation, format, or f-strings. The choice is yours.
@@ -76,9 +78,9 @@
 #
 # print(f"{title} ({release_year}), directed by {director}")
 
-#########
-# Day3 #
-#########
+#################################
+# Day4 Basic Python Collections #
+#################################
 # Exercice 1 Create a movies list containing a single tuple. The tuple should contain a movie title, the director’s
 # name, the release year of the movie, and the movie’s budget.
 movie = [("Reservoir Dogs",
@@ -110,6 +112,11 @@ print(movie)
 # Exercice 7 Remove the first movie from movies. Use any method you like.
 movie.pop(0)
 print(movie)
+
+##################################
+# Day5 Conditionals and Booleans #
+##################################
+# # Exercice 1
 
 #########
 # Day16 #
