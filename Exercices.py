@@ -216,27 +216,110 @@ movie = [("Reservoir Dogs",
 # print("| ".join(result))
 # print(", ".join(result))
 
-# Exercice 3 Below you’ll find a short list of quotes:
+# # Exercice 3 Below you’ll find a short list of quotes:
+# quotes = [
+#     "'What a waste my life would be without all the beautiful mistakes I've made.'",
+#     "'A bend in the road is not the end of the road... Unless you fail to make the turn.'",
+#     "'The very essence of romance is uncertainty.'",
+#     "'We are not here to do what has already been done.'"
+# ]
+# print("Solution - 1")
+# for quote in quotes:
+#     print(quote[1:-1])
 #
-quotes = [
-    "'What a waste my life would be without all the beautiful mistakes I've made.'",
-    "'A bend in the road is not the end of the road... Unless you fail to make the turn.'",
-    "'The very essence of romance is uncertainty.'",
-    "'We are not here to do what has already been done.'"
-]
-print("Solution - 1")
-for quote in quotes:
-    print(quote[1:-1])
-
-print("\nSolution - 2")
-for quote in quotes:
-    print(quote.strip("'"))
-
+# print("\nSolution - 2")
+# for quote in quotes:
+#     print(quote.strip("'"))
 #
 # Each quote is a string, but each string actually contains quote characters at the start and end. Using slicing,
 # extract the text from each string, without these extra quote marks, and print each quote.
 #
 # You may also want to try a solution using strip.
+
+
+# # Exercice 4 Ask the user to enter a word, and then print out the length of the word. You should account for any excess
+# # whitespace in the user’s input, so you’re going to have to process the string before you find its length.
+# #
+# # If you want to take this a little bit further, you an ask the user for a long piece of text. You can then tell them
+# # how many characters are in the text overall, and you can also provide them a word count.
+# # word = input('Please enter a word you can try to put white space : ').strip()
+# # print(len(word))
+# sentence = input('Please enter a sentence : ').strip()
+# print(f"Character count: {len(sentence)}")
+# print(f"Word count: {len(sentence.split())}")
+
+####################
+# Day8 While loops #
+####################
+# # Exercice 1 Write a short guessing game program using a while loop. The user should be prompted to guess a number
+# # between 1 and 100, and you should tell them whether their guess was too high or too low after each guess.
+# # The loop should keeping running until the user guesses the number correctly.
+# import random
+#
+# x = random.randint(1, 10)
+# reponse = int(input("Devinez un nombre tirez au hasard entre 1 et 10 : "))
+# print(x)
+# while reponse != x:
+#     if reponse < x:
+#         print("your number is too low")
+#     elif reponse > x:
+#         print("your number is too high")
+#     reponse = int(input("Essayez encore, devinez un nombre tirez au hasard entre 1 et 10 : "))
+#
+# print("Bravo vous avez trouve le nombre magique !!!")
+
+# # Exercice 2 Use a loop and the continue keyword to print out every character in the string "Python", except the "o".
+# # Remember that strings are collections, and they are iterable, so you can iterate over the string, which will yield
+# # one character at a time.
+# for x in "python":
+#     if x == 'o':
+#         continue
+#
+#     print(x)
+#
+# # Exercice 3 Using one of the examples from earlier—or a solution entirely of your own—create a program that prints out
+# # every prime number between 1 and 100.
+# x = 1
+# while x <= 100:
+#     print(x)
+#     x += 1
+#
+# for x in range(1, 101):
+#     print(x)
+
+
+####################
+# Day9 While loops #
+####################
+# # Exercice 1 Below is some simple data about characters from BoJack Horseman:
+# #
+# main_characters = [
+#     ("BoJack Horseman", "Will Arnett", "Horse"),
+#     ("Princess Carolyn", "Amy Sedaris", "Cat"),
+#     ("Diane Nguyen", "Alison Brie", "Human"),
+#     ("Mr. Peanutbutter", "Paul F. Tompkins", "Dog"),
+#     ("Todd Chavez", "Aaron Paul", "Human")
+# ]
+# # The data contains the character name, the voice actor or actress who plays them, and the species of the character.
+# # Write a for loop that uses destructuring so that you can print each tuple in the following format:
+# # BoJack Horseman is a horse voiced by Will Arnet.
+# # Note that you're going to have to change the species information to lowercase when you print it. If you need a
+# # reminder on how to do this, we covered it in day 3 of the first week.
+# for name, voice, play in main_characters:
+#     print(f"{name} is a {play.lower()} by {voice}.")
+
+# # Exercice 2 Unpack the following tuple into 4 variables:
+# # ("John Smith", 11743, ("Computer Science", "Mathematics"))
+# # The data represents a student's name, their student id number, and their major and minor disciplines in that order.
+# student_name, id_num, (major, minor) = ("John Smith", 11743, ("Computer Science", "Mathematics"))
+# print(student_name, id_num, major, minor)
+
+# Exercice3 Investigate what happens when you try to zip two iterables of different lengths. For example, try to zip a
+# list containing three items, and a tuples containing four items.
+first_is_a_list = [1, 2, 3]
+second_is_a_tuple = ('one', 'two', 'three', 'four')
+
+print(list(zip(first_is_a_list, second_is_a_tuple)))
 
 #########
 # Day16 #
