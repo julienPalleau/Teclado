@@ -82,15 +82,15 @@
 #################################
 # Day4 Basic Python Collections #
 #################################
-# Exercice 1 Create a movies list containing a single tuple. The tuple should contain a movie title, the director’s
-# name, the release year of the movie, and the movie’s budget.
-from typing import List
-
-movie = [("Reservoir Dogs",
-          "Quentin Tarantino",
-          "1992",
-          "$1,600,000")
-         ]
+# # Exercice 1 Create a movies list containing a single tuple. The tuple should contain a movie title, the director’s
+# # name, the release year of the movie, and the movie’s budget.
+# from typing import List
+#
+# movie = [("Reservoir Dogs",
+#           "Quentin Tarantino",
+#           "1992",
+#           "$1,600,000")
+#          ]
 
 # # Exercice 2 Use the input function to gather information about another movie. You need a title, director’s name,
 # # release year, and budget.
@@ -314,12 +314,127 @@ movie = [("Reservoir Dogs",
 # student_name, id_num, (major, minor) = ("John Smith", 11743, ("Computer Science", "Mathematics"))
 # print(student_name, id_num, major, minor)
 
-# Exercice3 Investigate what happens when you try to zip two iterables of different lengths. For example, try to zip a
-# list containing three items, and a tuples containing four items.
-first_is_a_list = [1, 2, 3]
-second_is_a_tuple = ('one', 'two', 'three', 'four')
+# # Exercice3 Investigate what happens when you try to zip two iterables of different lengths. For example, try to zip a
+# # list containing three items, and a tuples containing four items.
+# first_is_a_list = [1, 2, 3]
+# second_is_a_tuple = ('one', 'two', 'three', 'four')
+#
+# print(list(zip(first_is_a_list, second_is_a_tuple)))
 
-print(list(zip(first_is_a_list, second_is_a_tuple)))
+######################
+# Day10 Dictionaries #
+######################
+# # Exercice 1 Below is a tuple describing an album:
+# album = {
+# 	"title": "The Dark Side of the Moon",
+# 	"artist": "Pink Floyd",
+# 	"year": 1973,
+# 	"tracks": (
+# 		"Speak to Me",
+# 		"Breathe",
+# 		"On the Run",
+# 		"Time",
+# 		"The Great Gig in the Sky",
+# 		"Money",
+# 		"Us and Them",
+# 		"Any Colour You Like",
+# 		"Brain Damage",
+# 		"Eclipse"
+# 	)
+# }
+#
+# # Inside the tuple we have the album name, the artist (in this case, the band), the year of release, and then another tuple containing the track list.
+# # Convert this outer tuple to a dictionary with four keys.
+# album = {
+#  	"title": "The Dark Side of the Moon",
+#  	"artist": "Pink Floyd",
+#  	"year": 1973,
+#  	"tracks": (
+#  		"Speak to Me",
+#  		"Breathe",
+#  		"On the Run",
+#  		"Time",
+#  		"The Great Gig in the Sky",
+#  		"Money",
+#  		"Us and Them",
+#  		"Any Colour You Like",
+#  		"Brain Damage",
+#  		"Eclipse"
+#  	)
+# }
+# dic = {}
+# dic.update(album)
+# print(dic)
+#
+#
+# # Exercice 2  Iterate over the keys and values of the dictionary you create in exercise 1. For each key and value, you
+# # should print the name of the key, and then the value alongside it.
+# for key, value in dic.items():
+#     print(f"key: {key}, value: {value}")
+#
+# # Exercice 3 Delete the track list and year of release from the dictionary you created. Once you've done this, add a new
+# # key to the dictionary to store the date of release. The date of release for The Dark Side of the Moon was March 1st,
+# # 1973.
+# del dic["tracks"]
+# dic['date_of_release'] = 'March 1st, 1973'
+#
+# # Exercice 4 Try to retrieve one of the values you deleted from the dictionary. This should give you a KeyError.
+# # Once you've tried this, repeat the step using the get method to prevent the exception being raised.
+# print(dic.get("tracks", "No key tracks"))
+#
+# print(dic)
+
+
+#############
+# Day11 Set #
+#############
+# # Exercice 1 Create an empty set and assign it to a variable.
+# empty_set = set()
+# print(type(empty_set))
+#
+# # Exercice 2 Add three items to your empty set using either several add calls, or a single call to update.
+# empty_set.add(1)
+# empty_set.add(2)
+# empty_set.add(3)
+# print(empty_set)
+# empty_set.clear()
+# print(empty_set)
+# # or we could use a loop to grab items from a range object:
+# for number in range(1, 4):
+# 	empty_set.add(number)
+# print(empty_set)
+#
+# numbers = {"four", "five", "six"}
+# empty_set.update(numbers)
+# print(empty_set)
+# empty_set.clear()
+#
+# # Exercice 3 Create a second set which includes at least one common element with the first set.
+# numbers = {"seven", "eight", "seven"}
+# empty_set.update(numbers)
+# print(empty_set)
+#
+# # Exercice 4 Find the union, symmetric difference, and intersection of the two sets. Print the results of each operation.
+# set1 = {1, 2, 3}
+# set2 = {2, 3, 4}
+#
+# print(set1.union(set2))
+# print(set1.difference(set2))  # you can see that in this line and the next one the order matter as the result is different
+# print(set2.difference(set1))
+# print(set1.symmetric_difference(set2))
+
+# Exercice 5 Create a sequence of numbers using range, then ask the user to enter a number. Inform the user whether or
+# not their number was within the range you specified.
+# If you want an extra challenge, also tell the user if their number was too high or too low.
+numbers = range(1, 11)
+number = int(input('Entrez un nombre compris entre 1 et 10 : '))
+if number in numbers:
+	print(f"Bravo votre nombre est dans le range {numbers}")
+elif number > max(numbers):
+	print("Votre nombre est au dessus du range")
+else:
+	print("Votre nombre est au dessous du range")
+
 
 #########
 # Day16 #
