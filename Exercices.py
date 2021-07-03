@@ -423,17 +423,23 @@
 # print(set2.difference(set1))
 # print(set1.symmetric_difference(set2))
 
-# Exercice 5 Create a sequence of numbers using range, then ask the user to enter a number. Inform the user whether or
-# not their number was within the range you specified.
-# If you want an extra challenge, also tell the user if their number was too high or too low.
-numbers = range(1, 11)
-number = int(input('Entrez un nombre compris entre 1 et 10 : '))
-if number in numbers:
-	print(f"Bravo votre nombre est dans le range {numbers}")
-elif number > max(numbers):
-	print("Votre nombre est au dessus du range")
-else:
-	print("Votre nombre est au dessous du range")
+# # Exercice 5 Create a sequence of numbers using range, then ask the user to enter a number. Inform the user whether or
+# # not their number was within the range you specified.
+# # If you want an extra challenge, also tell the user if their number was too high or too low.
+# numbers = range(1, 11)
+# number = int(input('Entrez un nombre compris entre 1 et 10 : '))
+# if number in numbers:
+# 	print(f"Bravo votre nombre est dans le range {numbers}")
+# elif number > max(numbers):
+# 	print("Votre nombre est au dessus du range")
+# else:
+# 	print("Votre nombre est au dessous du range")
+
+
+###################
+# Day12 Functions #
+###################
+
 
 
 #########
