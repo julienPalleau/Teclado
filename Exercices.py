@@ -647,27 +647,44 @@
 from math import sqrt, ceil
 
 
+def sum_divisible_par_trois(number):
+    array_nombre = []
+    for i in str(number):
+        array_nombre.append(int(i))
+    return sum(array_nombre) % 3
+
+
+def sum_divisible_par_neuf(number):
+    array_nombre = []
+    for i in str(number):
+        array_nombre.append(int(i))
+    return sum(array_nombre) % 9
+
+
 def prime(number):
-    for i in range(2, ceil(sqrt(number))):
-        if number % 2 == 0:
-            return False
-        elif number % 5 == 0:
-            return False
-        elif number % 10 == 0:
-            return False
+    if number == 0 or number == 1 or number == 2 or number == 3:
+        return True
+    else:
+        for i in range(2, ceil(sqrt(number))):
+            if number % 2 == 0:
+                return False
+            elif number % 5 == 0 and number != 5:
+                return False
+            elif number % 10 == 0:
+                return False
+            elif sum_divisible_par_trois(number) % 3 == 0 and sum_divisible_par_trois(number) != 3:
+                return False
+            elif sum_divisible_par_neuf(number) % 3 == 0 and sum_divisible_par_neuf(number) != 9:
+                return False
+            else:
+                return True
 
 
-nombre = 15
-total = 0
-array_nombre = []
-for i in str(nombre):
-    array_nombre.append(int(i))
-
-for i in array_nombre:
-    total += i
-
-print(total)
-#prime(10)
+if prime(83):
+    print("C'est un nombre premier")
+else:
+    print("Ce n'est pas un nombre premier")
+# prime(10)
 
 #########
 # Day16 #
