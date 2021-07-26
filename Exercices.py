@@ -628,64 +628,75 @@
 # for keys,values in result.items():
 #     print(keys, values)
 
-# Exercice 4
-# Write a function that takes in a single number and returns True or False depending on whether or not the number is
-# prime. If you need a refresher on how to calculate if a number is prime, we show one method in day 8 of the series.
-
-# Rappel sur comment trouver un nombre premier
-# Un nombre premier est un nombre divisible uniquement par 1 et lui meme.
-# 1/ Soit n le nombre dont nous voulons savoir si il est premier
-# 2/ on va chercher entre 2 et sqrt(n) au dela cela ne sert ex: prenons 35 sqrt(35) = 7 si on va au dela de 7 nous
-# reecrivons la meme chose mais dans l'autre sens ex: 5*7 <-> 7*5
-# 3/ Les criteres de divisibilite:
-#   - par 2, si son chiffre des unites est pair,
-#   - par 5, si son chiffre des unites est 0 ou 5,
-#   - par 10, si son chiffre des unites est 0,
-#   - par 3, si la somme de ses chiffres est divisible par 3,
-#   - par 9, si la somme de ses chiffres est divisible par 9.
-
-from math import sqrt, ceil
-
-
-def sum_divisible_par_trois(number):
-    array_nombre = []
-    for i in str(number):
-        array_nombre.append(int(i))
-    return sum(array_nombre) % 3
-
-
-def sum_divisible_par_neuf(number):
-    array_nombre = []
-    for i in str(number):
-        array_nombre.append(int(i))
-    return sum(array_nombre) % 9
-
-
-def prime(number):
-    if number == 0 or number == 1 or number == 2 or number == 3:
-        return True
-    else:
-        for i in range(2, ceil(sqrt(number))):
-            if number % 2 == 0:
-                return False
-            elif number % 5 == 0 and number != 5:
-                return False
-            elif number % 10 == 0:
-                return False
-            elif sum_divisible_par_trois(number) % 3 == 0 and sum_divisible_par_trois(number) != 3:
-                return False
-            elif sum_divisible_par_neuf(number) % 3 == 0 and sum_divisible_par_neuf(number) != 9:
-                return False
-            else:
-                return True
+# # Exercice 4
+# # Write a function that takes in a single number and returns True or False depending on whether or not the number is
+# # prime. If you need a refresher on how to calculate if a number is prime, we show one method in day 8 of the series.
+#
+# # Rappel sur comment trouver un nombre premier
+# # Un nombre premier est un nombre divisible uniquement par 1 et lui meme.
+# # 1/ Soit n le nombre dont nous voulons savoir si il est premier
+# # 2/ on va chercher entre 2 et sqrt(n) au dela cela ne sert ex: prenons 35 sqrt(35) = 7 si on va au dela de 7 nous
+# # reecrivons la meme chose mais dans l'autre sens ex: 5*7 <-> 7*5
+# # 3/ Les criteres de divisibilite:
+# #   - par 2, si son chiffre des unites est pair,
+# #   - par 5, si son chiffre des unites est 0 ou 5,
+# #   - par 10, si son chiffre des unites est 0,
+# #   - par 3, si la somme de ses chiffres est divisible par 3,
+# #   - par 9, si la somme de ses chiffres est divisible par 9.
+#
+# from math import sqrt, ceil
+#
+#
+# def sum_divisible_par_trois(number):
+#     array_nombre = []
+#     for i in str(number):
+#         array_nombre.append(int(i))
+#     return sum(array_nombre) % 3
+#
+#
+# def sum_divisible_par_neuf(number):
+#     array_nombre = []
+#     for i in str(number):
+#         array_nombre.append(int(i))
+#     return sum(array_nombre) % 9
 
 
-if prime(83):
-    print("C'est un nombre premier")
-else:
-    print("Ce n'est pas un nombre premier")
-# prime(10)
+# def prime(number):
+#     if number == 0 or number == 1 or number == 2 or number == 3:
+#         return True
+#     else:
+#         for i in range(2, ceil(sqrt(number))):
+#             if number % 2 == 0:
+#                 return False
+#             elif number % 5 == 0 and number != 5:
+#                 return False
+#             elif number % 10 == 0:
+#                 return False
+#             elif sum_divisible_par_trois(number) % 3 == 0 and sum_divisible_par_trois(number) != 3:
+#                 return False
+#             elif sum_divisible_par_neuf(number) % 3 == 0 and sum_divisible_par_neuf(number) != 9:
+#                 return False
+#             else:
+#                 return True
+#
+#
+# if prime(83):
+#     print("C'est un nombre premier")
+# else:
+#     print("Ce n'est pas un nombre premier")
 
+# Correction
+def is_prime(dividend):
+    if dividend < 2:
+        return False
+
+    for divisor in range(2, dividend):
+        if dividend % divisor == 0:
+            return False
+
+    return True
+
+print(is_prime(97))
 #########
 # Day16 #
 #########
