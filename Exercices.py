@@ -469,58 +469,205 @@
 
 # # Exercice2 Define a function called print_show_info that has a single parameter. The argument passed to it will be a
 # # dictionary with some information about a T.V. show. For example:
-#
-tv_show = {
-    "title": "Breaking Bad",
-    "seasons": 5,
-    "initial_release": 2008
-}
-
-
-#  print_show_info(tv_show)
-# The print_show_info function should print the information stored in the dictionary, in a nice way. For example:
-#  Breaking Bad (2008) - 5 seasons
-# Remember you must define your function before calling it!
-
-
-def print_show_tv(tv_show):
-    print(f"{tv_show.get('title', 'unknown')} ({tv_show.get('initial_release', 'unknow')}) - "
-          f"{tv_show.get('seasons', 'unknown')} seasons")
-
-
-#
-#
-# print_show_tv(tv_show)
-#
-# # Exercice 3 Below you’ll find a list containing details about multiple TV series.
 # #
-series = [
-    {"title": "Breaking Bad", "seasons": 5, "initial_release": 2008},
-    {"title": "Fargo", "seasons": 4, "initial_release": 2014},
-    {"title": "Firefly", "seasons": 1, "initial_release": 2002},
-    {"title": "Rick and Morty", "seasons": 4, "initial_release": 2013},
-    {"title": "True Detective", "seasons": 3, "initial_release": 2014},
-    {"title": "Westworld", "seasons": 3, "initial_release": 2016},
-]
-# # Use your function, print_show_info, and a for loop, to iterate over the series list, and call your function once for
-# # each iteration, passing in each dictionary. You should end up with each series printed in the appropriate format.
-for line in series:
-    print_show_tv(line)
+# tv_show = {
+#     "title": "Breaking Bad",
+#     "seasons": 5,
+#     "initial_release": 2008
+# }
+#
+#
+# #  print_show_info(tv_show)
+# # The print_show_info function should print the information stored in the dictionary, in a nice way. For example:
+# #  Breaking Bad (2008) - 5 seasons
+# # Remember you must define your function before calling it!
+#
+#
+# def print_show_tv(tv_show):
+#     print(f"{tv_show.get('title', 'unknown')} ({tv_show.get('initial_release', 'unknow')}) - "
+#           f"{tv_show.get('seasons', 'unknown')} seasons")
+#
+#
+# #
+# #
+# # print_show_tv(tv_show)
+# #
+# # # Exercice 3 Below you’ll find a list containing details about multiple TV series.
+# # #
+# series = [
+#     {"title": "Breaking Bad", "seasons": 5, "initial_release": 2008},
+#     {"title": "Fargo", "seasons": 4, "initial_release": 2014},
+#     {"title": "Firefly", "seasons": 1, "initial_release": 2002},
+#     {"title": "Rick and Morty", "seasons": 4, "initial_release": 2013},
+#     {"title": "True Detective", "seasons": 3, "initial_release": 2014},
+#     {"title": "Westworld", "seasons": 3, "initial_release": 2016},
+# ]
+# # # Use your function, print_show_info, and a for loop, to iterate over the series list, and call your function once for
+# # # each iteration, passing in each dictionary. You should end up with each series printed in the appropriate format.
+# for line in series:
+#     print_show_tv(line)
+#
+# # Exercice 4 Create a function to test if a word is a palindrome. A palindrome is a string of characters that are
+# # identical whether read forwards or backwards. For example, “was it a car or a cat I saw” is a palindrome.
+# word = "was it a car or a cat I saw"
+#
+#
+# def is_apalindrome(word):
+#     if word[::-1].lower().replace(" ", "") == word.lower().replace(" ", ""):
+#         print("Il s'agit bien d'un palindrome")
+#     else:
+#         print("Desole ceci n'est pas un palindrome")
+#
+#
+# is_apalindrome(word)
+#
+# # Project Reading list
+# # The brief
+# #
+# # For this project the application needs to have the following functionality:
+# #
+# #     Users should be able to add a book to their reading list by providing a book title, an author's name, and a year
+# #     of publication.
+# #     The program should store information about all of these books in a Python list.
+# #     Users should be able to display all the books in their reading list, and these books should be printed out in a
+# #     user-friendly format.
+# #     Users should be able to select these options from a text menu, and they should be able to perform multiple
+# #     operations without restarting the program. You can see an example of a working menu in the post on while loops
+# #     (day 8).
+# #
+# # This project is a bit larger than the ones we've tackled before, so make sure you tackle it one piece at a time.
+# #
+# # Something to note with this project is that because the books in the reading list are stored in a Python list, when
+# # the program ends, the reading list data will be lost.
+#
+# menu_prompt = """Please select an option:  a to add, l to list the books"
+# 'a' to add a book
+# 'd' to delete a book
+# 'l' to list a book
+# 'r' to mak a book as read
+# 's' to search for a book
+# 'q' to quit
+#
+# What would you like to do ? """
+#
+#
+# def add():
+#     title, author, year_of_pulbication = input(
+#         f"Please provide the book title, author's name and year of publication "
+#         f"separated by ,: ").split(',')
+#     print(title, author, year_of_pulbication)
+#
+#
+# def delete():
+#     pass
+#
+#
+# def list_books():
+#     pass
+#
+#
+# def mark():
+#     pass
+#
+#
+# def search():
+#     pass
+#
+#
+# def quit():
+#     pass
+#
+#
+# # Get a selection from the user
+# selection_option = input(menu_prompt).strip().lower()
+#
+# while selection_option != 'q':
+#     if selection_option == 'a':
+#         add()
+#     elif selection_option == 'd':
+#         delete()
+#     elif selection_option == 'l':
+#         list_books()
+#     elif selection_option == 'r':
+#         mark()
+#     elif selection_option == 's':
+#         search()
+#     else:
+#         print(f"Sorry, {selection_option} isn't a valid option.")
+#         break
+#
+#     selection_option = input(menu_prompt).strip().lower()
 
-# Exercice 4 Create a function to test if a word is a palindrome. A palindrome is a string of characters that are
-# identical whether read forwards or backwards. For example, “was it a car or a cat I saw” is a palindrome.
-word = "was it a car or a cat I saw"
+#########
+# Day13 #
+#########
+# # Exercice 1 Define a exponentiate function that takes in two numbers. The first is the base, and the second is the
+# # power to raise the base to. The function should return the result of this operation. Remember we can perform
+# # exponentiation using the ** operator.
+# def power(base, pw):
+#     return base ** pw
+#
+#
+# print(power(2, 2))
+#
+#
+# # Exercice 2 Define a process_string function which takes in a string and returns a new string which has been converted
+# # to lowercase, and has had any excess whitespace removed.
+# def process_string(string):
+#     return string.strip().lower()
+#
+#
+# print(process_string(" HelLo "))
+
+# # Exercice 3 Write a function that takes in a tuple containing information about an actor and returns this data as a
+# # dictionary. The data should be in the following format:
+# # ("Tom Hardy", "English", 42)  # name, nationality, age
+# # You can choose whatever key names you like for the dictionary.
+# actor, nationality, old = "Tom Hardy", "English", 42
+# result = {"nom": {actor}, "nationalite": {nationality}, "age": {old}}
+# for keys,values in result.items():
+#     print(keys, values)
+
+# Exercice 4
+# Write a function that takes in a single number and returns True or False depending on whether or not the number is
+# prime. If you need a refresher on how to calculate if a number is prime, we show one method in day 8 of the series.
+
+# Rappel sur comment trouver un nombre premier
+# Un nombre premier est un nombre divisible uniquement par 1 et lui meme.
+# 1/ Soit n le nombre dont nous voulons savoir si il est premier
+# 2/ on va chercher entre 2 et sqrt(n) au dela cela ne sert ex: prenons 35 sqrt(35) = 7 si on va au dela de 7 nous
+# reecrivons la meme chose mais dans l'autre sens ex: 5*7 <-> 7*5
+# 3/ Les criteres de divisibilite:
+#   - par 2, si son chiffre des unites est pair,
+#   - par 5, si son chiffre des unites est 0 ou 5,
+#   - par 10, si son chiffre des unites est 0,
+#   - par 3, si la somme de ses chiffres est divisible par 3,
+#   - par 9, si la somme de ses chiffres est divisible par 9.
+
+from math import sqrt, ceil
 
 
-def is_apalindrome(word):
-    if word[::-1].lower().replace(" ", "") == word.lower().replace(" ", ""):
-        print("Il s'agit bien d'un palindrome")
-    else:
-        print("Desole ceci n'est pas un palindrome")
+def prime(number):
+    for i in range(2, ceil(sqrt(number))):
+        if number % 2 == 0:
+            return False
+        elif number % 5 == 0:
+            return False
+        elif number % 10 == 0:
+            return False
 
 
-is_apalindrome(word)
+nombre = 15
+total = 0
+array_nombre = []
+for i in str(nombre):
+    array_nombre.append(int(i))
 
+for i in array_nombre:
+    total += i
+
+print(total)
+#prime(10)
 
 #########
 # Day16 #
@@ -590,3 +737,52 @@ is_apalindrome(word)
 # Currency: {currency}"""
 #
 # print(country_template.format(**country))
+
+# # Exercice 4 Using * unpacking and range, print the numbers 1 to 20, separated by commas. You will have to provide an
+# # argument for print function's sep parameter for this exercise.
+# print(*range(1, 21), sep=", ")
+#
+# # Exercice 5 Modify your code from exercise 4 so that each number prints on a different line. You can only use a single
+# # print call.
+# print(*range(1, 21), sep="\n")
+
+# ----------------------------------
+
+# #########
+# # Day18 #
+# #########
+# # Exercice 1 Import the fractions module and create a Fraction from the float 2.25. You can find information on how to
+# # create fractions in the documentation.
+# from fractions import Fraction
+#
+# print(Fraction(2.25))
+#
+# # Exercice 2 Import only the fsum function from the math module and use it to find the sum of the following series of
+# # floats:
+# from math import fsum
+#
+# numbers = [1.43, 1.1, 5.32, 87.032, 0.2, 23.4]
+# print(fsum(numbers))
+#
+# # Exercice 3 Import the random module using an alias, and find a random number between 1 and 100 using the randint
+# # function. You can find documentation for this function here.
+# import random as rd
+#
+# x = rd.randint(1, 100)
+# print(x)
+
+# # Exercice 4 Use the randint function from the exercise above to create a new version of the guessing game we made in
+# # day 8. This time the program should generate a random number, and you should tell the user whether their guess was
+# # too high, or too low, until they get the right number.
+# import random
+# x = random.randint(1, 10)
+# reponse = int(input("Devinez un nombre tirez au hasard entre 1 et 10 : "))
+# print(x)
+# while reponse != x:
+#     if reponse < x:
+#         print("your number is too low")
+#     elif reponse > x:
+#         print("your number is too high")
+#     reponse = int(input("Essayez encore, devinez un nombre tirez au hasard entre 1 et 10 : "))
+
+# Project: JSON Reading List
