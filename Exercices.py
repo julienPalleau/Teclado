@@ -540,6 +540,7 @@
 # # Something to note with this project is that because the books in the reading list are stored in a Python list, when
 # # the program ends, the reading list data will be lost.
 #
+
 # menu_prompt = """Please select an option:  a to add, l to list the books"
 # 'a' to add a book
 # 'd' to delete a book
@@ -550,32 +551,72 @@
 #
 # What would you like to do ? """
 #
+# book_read = {}
+# list_book_read = []
+#
 #
 # def add():
 #     title, author, year_of_pulbication = input(
 #         f"Please provide the book title, author's name and year of publication "
 #         f"separated by ,: ").split(',')
-#     print(title, author, year_of_pulbication)
+#     book_read = {"title": title.strip(), "author": author.strip(), "year": year_of_pulbication.strip(), "read": False}
+#     list_book_read.append(book_read)
 #
 #
 # def delete():
-#     pass
+#     choix = input('Desirez vous effacer un titre(1), un auteur(2), une date(3) or q to quit : ')
+#     if choix == 'q':
+#         choix = 113
+#     else:
+#         choix = int(choix)
+#
+#     while choix != 113:
+#         if choix == 1:
+#             title = input("Saisissez le titre du livre a effacer : ")
+#             i = 0
+#             for book in list_book_read:
+#                 if book.get("title") == title:
+#                     del list_book_read[i]
+#                 i += 1
+#
+#         if choix == 2:
+#             for book in list_book_read:
+#                 del book["author"]
+#
+#         if choix == 3:
+#             for book in list_book_read:
+#                 del book["year"]
+#
+#         choix = input('Desirez vous effacer un titre(1), un auteur(2), une date(3) or q to quit : ')
+#         if choix == 'q':
+#             choix = 113
+#         else:
+#             choix = int(choix)
 #
 #
 # def list_books():
-#     pass
+#     for book in list_book_read:
+#         if book.get("read"):
+#             print(book.get("title"), book.get("author"), book.get("year"))
 #
 #
 # def mark():
-#     pass
+#     title = input("Type the book title you've just red : ")
+#     for book in list_book_read:
+#         if book.get("title") == title:
+#             book['read'] = True
 #
 #
 # def search():
-#     pass
+#     search_word = input('Please type a title or an author or a year of publication : ').strip()
+#
+#     for book in list_book_read:
+#         if book.get("title") == search_word or book.get("author") == search_word or str(book.get("year").strip()) == str(search_word):
+#             print(book.get("title"), book.get("author"), book.get("year"), book.get("read"))
 #
 #
 # def quit():
-#     pass
+#     exit(0)
 #
 #
 # # Get a selection from the user
@@ -685,18 +726,240 @@
 # else:
 #     print("Ce n'est pas un nombre premier")
 
-# Correction
-def is_prime(dividend):
-    if dividend < 2:
-        return False
+# # Correction
+# def is_prime(dividend):
+#     if dividend < 2:
+#         return False
+#
+#     for divisor in range(2, dividend):
+#         if dividend % divisor == 0:
+#             return False
+#
+#     return True
+#
+# print(is_prime(97))
 
-    for divisor in range(2, dividend):
-        if dividend % divisor == 0:
-            return False
+#########
+# Day14 #
+#########
+# # Exercice 1 Rewrite the following piece of code using a context manager:
+# #
+# #  f = open("hello_world.txt", "w")
+# #  f.write("Hello, World!")
+# #  f.close()
+# #
+# # Use append mode to write "How are you?" on the second line of the hello_world.txt file above.
+# with open("hello_world.txt", "w") as f:
+#     f.write("Hello World! \n")
+#
+# # Exercice 2 Use append mode to write "How are you?" on the second line of the hello_world.txt file above.
+# with open("hello_world.txt", "a") as f:
+#     f.write("How are you? \n")
+#
+# # Exercice 3 Take the list of dictionaries we created from the Iris flower data set and write it to a new file in CSV format.
+# # standard way to proceed:
+# with open("iris.csv", "r") as iris_file:
+#     iris_data = iris_file.readlines()
+#
+# headers = iris_data[0].strip().split("\t")
+# irises = []
+# for row in iris_data[1:]:
+#     iris = row.strip().split("\t")
+#     iris_dict = dict(zip(headers, iris))
+#     irises.append(iris_dict)
+#
+# for line in irises:
+#     print(line)
+#
+# # Using csv module
+# import csv
+#
+# movies = [
+#     {"name": "The Matrix", "director": "Wachowski"},
+#     {"name": "Green Book", "director": "Farelly"},
+#     {"name": "Amadeus", "director": "Forman"},
+# ]
+#
+#
+# def write_to_file(output):
+#     with open("file.csv", "w") as f:
+#         writer = csv.DictWriter(f, fieldnames=["name", "director"])
+#         writer.writeheader()
+#         writer.writerows(output)
+#
+#
+# def read_from_file():
+#     with open("file.csv", "r") as f:
+#         reader = csv.DictReader(f)
+#         for line in reader:
+#             print(f"Name: {line['name']}\tDirector: {line['director']}")
+#
+#
+# write_to_file(movies)
+# read_from_file()
 
-    return True
+# # Project: Reading List
+# # The brief
+# #
+# # For this project the application needs to have the following functionality:
+# #
+# #     Users should be able to add a book to their reading list by providing a book title, an author's name, and a year of publication.
+# #     The program should store information about all of these books in a file called books.csv, and this data should be stored in CSV format.
+# #     Users should be able to retrieve the books in their reading list, and these books should be printed out in a user-friendly format.
+# #     Users should be able to search for a specific book by providing a book title.
+# #     Users should be able to select these options from a text menu, and they should be able to perform multiple operations without restarting the program. You can see an example of a working menu in the post on while loops (day 8).
+# #
+# # This project is much larger than the ones we've tackled before, so make sure you tackle it one piece at a time.
+# #
+# # If you want to challenge yourself, we also have a slightly harder version of the project that you can try, that has additional functionality.
+# #
+# import csv
+#
+#
+# def write_to_file(output):
+#     with open("file.csv", "w") as f:
+#         writer = csv.DictWriter(f, fieldnames=["title", "author", "year", "read"])
+#         writer.writeheader()
+#         writer.writerows(output)
+#
+#
+# def read_file(output):
+#     with open("file.csv", "r") as f:
+#         reader = csv.DictReader(f)
+#         for line in reader:
+#             print(f"Name: {line['title']}\tauthor: {line['author']}\tyear: {line['year']}\tread: {line['read']}")
+#
+#
+# menu_prompt = """Please select an option:  a to add, l to list the books"
+# 'a' to add a book
+# 'd' to delete a book
+# 'l' to list a book
+# 'r' to mak a book as read
+# 's' to search for a book
+# 'q' to quit
+#
+# What would you like to do ? """
+#
+# book_read = {}
+# list_book_read = []
+#
+#
+# def add():
+#     title, author, year_of_pulbication = input(
+#         f"Please provide the book title, author's name and year of publication "
+#         f"separated by ,: ").split(',')
+#     book_read = {"title": title.strip(), "author": author.strip(), "year": year_of_pulbication.strip(), "read": False}
+#     list_book_read.append(book_read)
+#     write_to_file(list_book_read)
+#
+#
+# def delete():
+#     choix = input('Desirez vous effacer un titre(1), un auteur(2), une date(3) or q to quit : ')
+#     if choix == 'q':
+#         choix = 113
+#     else:
+#         choix = int(choix)
+#
+#     while choix != 113:
+#         if choix == 1:
+#             title = input("Saisissez le titre du livre a effacer : ")
+#             i = 0
+#             for book in list_book_read:
+#                 if book.get("title") == title:
+#                     del list_book_read[i]
+#                 i += 1
+#
+#         if choix == 2:
+#             for book in list_book_read:
+#                 del book["author"]
+#
+#         if choix == 3:
+#             for book in list_book_read:
+#                 del book["year"]
+#
+#         choix = input('Desirez vous effacer un titre(1), un auteur(2), une date(3) or q to quit : ')
+#         if choix == 'q':
+#             choix = 113
+#         else:
+#             choix = int(choix)
+#
+#
+# def list_books():
+#     read_file(list_book_read)
+#
+#
+# def mark():
+#     title = input("Type the book title you've just red : ")
+#     for book in list_book_read:
+#         if book.get("title") == title:
+#             book['read'] = True
+#     write_to_file(list_book_read)
+#
+#
+# def search():
+#     search_word = input('Please type a title or an author or a year of publication : ').strip()
+#
+#     for book in list_book_read:
+#         if book.get("title") == search_word or book.get("author") == search_word or str(
+#                 book.get("year").strip()) == str(search_word):
+#             print(book.get("title"), book.get("author"), book.get("year"), book.get("read"))
+#
+#
+# def quit():
+#     exit(0)
+#
+#
+# # Get a selection from the user
+# selection_option = input(menu_prompt).strip().lower()
+#
+# while selection_option != 'q':
+#     if selection_option == 'a':
+#         add()
+#     elif selection_option == 'd':
+#         delete()
+#     elif selection_option == 'l':
+#         list_books()
+#     elif selection_option == 'r':
+#         mark()
+#     elif selection_option == 's':
+#         search()
+#     else:
+#         print(f"Sorry, {selection_option} isn't a valid option.")
+#         break
+#
+#     selection_option = input(menu_prompt).strip().lower()
 
-print(is_prime(97))
+#########
+# Day15 #
+#########
+# # Exercice 1 Convert the following for loop into a comprehension:
+#
+# numbers = [1, 2, 3, 4, 5]
+# #squares = []
+# #
+# # for number in numbers:
+# # 	squares.append(number ** 2)
+#
+# squares = [number**2 for number in numbers]
+# print(squares)
+
+# Exercice 2 Use a dictionary comprehension to create a new dictionary from the dictionary below, where each of the
+# values is title case.
+#
+movie = {
+	"title": "thor: ragnarok",
+	"director": "taika waititi",
+	"producer": "kevin feige",
+	"production_company": "marvel studios"
+}
+#
+# Remember that iterating over a dictionary only gives us the keys by default. You can use the items method to get the
+# keys and the values. See day 10 for more details.
+result = {key: value for key, value in movie.items()}
+print(result)
+
+
+
 #########
 # Day16 #
 #########
