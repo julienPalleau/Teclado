@@ -943,20 +943,20 @@
 # squares = [number**2 for number in numbers]
 # print(squares)
 
-# Exercice 2 Use a dictionary comprehension to create a new dictionary from the dictionary below, where each of the
-# values is title case.
-#
-movie = {
-	"title": "thor: ragnarok",
-	"director": "taika waititi",
-	"producer": "kevin feige",
-	"production_company": "marvel studios"
-}
-#
-# Remember that iterating over a dictionary only gives us the keys by default. You can use the items method to get the
-# keys and the values. See day 10 for more details.
-result = {key: value for key, value in movie.items()}
-print(result)
+# # Exercice 2 Use a dictionary comprehension to create a new dictionary from the dictionary below, where each of the
+# # values is title case.
+# #
+# movie = {
+# 	"title": "thor: ragnarok",
+# 	"director": "taika waititi",
+# 	"producer": "kevin feige",
+# 	"production_company": "marvel studios"
+# }
+# #
+# # Remember that iterating over a dictionary only gives us the keys by default. You can use the items method to get the
+# # keys and the values. See day 10 for more details.
+# result = {key: value for key, value in movie.items()}
+# print(result)
 
 
 
